@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Form Project</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lobster+Two&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="slider">
+      <input
+        type="radio"
+        name="slider"
+        value="1"
+        title="Welcome"
+        checked="checked"
+        class="slider-btn"
+      />
+      <input
+        type="radio"
+        name="slider"
+        value="2"
+        title="Christmas Plans"
+        class="slider-btn"
+      />
+      <input
+        type="radio"
+        name="slider"
+        value="3"
+        title="Christmas List"
+        class="slider-btn"
+      />
+      <input
+        type="radio"
+        name="slider"
+        value="4"
+        title="Christmas Presents"
+        class="slider-btn"
+      />
+      <input
+        type="radio"
+        name="slider"
+        value="5"
+        title="Belief in Santa"
+        class="slider-btn"
+      />
+      <input
+        type="radio"
+        name="slider"
+        value="6"
+        title="Meaning of Christmas"
+        class="slider-btn"
+      />
+      <input
+        type="radio"
+        name="slider"
+        value="7"
+        title="About You"
+        class="slider-btn"
+      />
+
+      <form id="survey-form" class="form">
+        <section class="form-section">
+          <figure class="form-figure">
+            <img
+              id="santa"
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/Survey_Form/img/santa5A.png"
+              alt="Santa welcoming"
+            />
+            <img
+              id="rudolph"
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/Survey_Form/img/santa5B.png"
+              alt="Rudolph welcoming"
+            />
+          </figure>
+          <h1 id="title" class="form-caption">
+            Welcome to Santa's Survey Form!
+          </h1>
+          <p id="description" class="form-text">
+            Thanks for Telling Us about Your Christmas Secrets
+          </p>
+        </section>
+
+        <section class="form-section">
+          <figure class="form-figure">
+            <img
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/Survey_Form/img/santa_plans.png"
+              alt="Santa with colored lights"
+            />
+          </figure>
+          <h2 class="form-caption">What are your Christmas plans?</h2>
+
+          <div class="form-field-group">
+            <label for="plan1" class="field-radio">
+              <input
+                id="plan1"
+                name="plans"
+                type="radio"
+                value="Spending it with family"
+                checked="checked"
+              />
+              <span>Spending it with family</span>
+            </label>
+            <label for="plan2" class="field-radio">
+              <input
+                id="plan2"
+                name="plans"
+                type="radio"
+                value="Spending it with friends"
+              />
+              <span>Spending it with friends</span>
+            </label>
+            <label for="plan3" class="field-radio">
+              <input
+                id="plan3"
+                name="plans"
+                type="radio"
+                value="I'll be home (alone) for Christmas"
+              />
+              <span>I'll be home (alone) for Christmas</span>
+            </label>
+            <label for="plan4" class="field-radio">
+              <input
+                id="plan4"
+                name="plans"
+                type="radio"
+                value="Vacationing somewhere warm"
+              />
+              <span>Vacationing somewhere warm</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <figure class="form-figure">
+            <img
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/Survey_Form/img/santa6.png"
+              alt="Santa reading a list"
+            />
+          </figure>
+          <h2 class="form-caption">What's on your Christmas list this year?</h2>
+
+          <div class="form-field-group">
+            <label for="list1" class="field-checkbox">
+              <input
+                id="list1"
+                name="list1"
+                type="checkbox"
+                value="A significant other"
+              />
+              <span>A significant other</span>
+            </label>
+
+            <label for="list2" class="field-checkbox">
+              <input
+                id="list2"
+                name="list2"
+                type="checkbox"
+                value="iPhone 11"
+              />
+              <span>iPhone 11</span>
+            </label>
+
+            <label for="list3" class="field-checkbox">
+              <input
+                id="list3"
+                name="list3"
+                type="checkbox"
+                value="A full-time job"
+              />
+              <span>A full-time job</span>
+            </label>
+
+            <label for="list4" class="field-checkbox">
+              <input
+                id="list4"
+                name="list4"
+                type="checkbox"
+                value="Cash money"
+              />
+              <span>Cash money</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <figure class="form-figure">
+            <img
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/Survey_Form/img/santa3.png"
+              alt="Santa with gifts"
+            />
+          </figure>
+          <h2 class="form-caption">When do you open presents?</h2>
+          <select id="dropdown" class="field-select">
+            <option>Choose an option...</option>
+            <option>Christmas Eve</option>
+            <option>Christmas Day</option>
+          </select>
+        </section>
+
+        <section class="form-section">
+          <figure class="form-figure">
+            <img
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/Survey_Form/img/santa_believe.png"
+              alt="Santa falling"
+            />
+          </figure>
+          <h2 class="form-caption">When did you stop believing in Santa?</h2>
+          <div class="form-field-group">
+            <label for="believe1" class="field-radio">
+              <input
+                id="believe1"
+                name="believe"
+                type="radio"
+                value="Between 5-8 years old"
+                checked="checked"
+              />
+              <span>Between 5-8 years old</span>
+            </label>
+            <label for="believe2" class="field-radio">
+              <input
+                id="believe2"
+                name="believe"
+                type="radio"
+                value="Between 9-12 years old"
+              />
+              <span>Between 9-12 years old</span>
+            </label>
+            <label for="believe3" class="field-radio">
+              <input
+                id="believe3"
+                name="believe"
+                type="radio"
+                value="I never believed in the fat man"
+              />
+              <span>I never believed in the fat man</span>
+            </label>
+            <label for="believe4" class="field-radio">
+              <input
+                id="believe4"
+                name="believe"
+                type="radio"
+                value="What!? Santa's not real!!??"
+              />
+              <span>What!? Santa's not real!!??</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="form-section">
+          <figure class="form-figure">
+            <img
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/Survey_Form/img/santa7i.png"
+              alt="Santa decorating a pine tree"
+            />
+          </figure>
+          <h2 class="form-caption">What's the true meaning of Christmas?</h2>
+          <div class="form-field-group">
+            <textarea
+              id="meaning1"
+              class="field-text"
+              placeholder="For me, Christmas is ..."
+              rows="7"
+            ></textarea>
+            <label for="meaning1" class="floating-label"
+              >For me, Christmas is ...</label
+            >
+          </div>
+        </section>
+
+        <section class="form-section">
+          <figure class="form-figure" id="final-santa">
+            <img
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/Survey_Form/img/santa4.png"
+              alt="Santa reading"
+            />
+          </figure>
+          <h2 class="form-caption">
+            Finally, Santa would like to know something about you:
+          </h2>
+
+          <div class="form-field-group">
+            <input
+              id="name"
+              class="field-text"
+              name="name"
+              type="text"
+              value=""
+              placeholder="What's your name?"
+              required
+            />
+            <label for="name" id="name-label" class="floating-label"
+              >What's your name?</label
+            >
+            <div class="validation-info">*Santa requires it</div>
+          </div>
+
+          <div class="form-field-group">
+            <input
+              id="email"
+              class="field-text"
+              name="email"
+              type="email"
+              placeholder="What's your email?"
+              spellcheck="false"
+              value=""
+              minlength="10"
+              maxlength="30"
+              required
+            />
+            <label for="email" id="email-label" class="floating-label"
+              >What's your email?</label
+            >
+            <div class="validation-info">*Santa requires it</div>
+          </div>
+
+          <div class="form-field-group">
+            <input
+              name="age"
+              id="number"
+              class="field-text"
+              type="number"
+              min="7"
+              max="80"
+              value=""
+              placeholder="How old are you?"
+            />
+            <label for="number" id="number-label" class="floating-label"
+              >How old are you?</label
+            >
+            <div class="validation-info">Only numbers and no lies!</div>
+          </div>
+          <button
+            type="submit"
+            id="submit"
+            value="Submit"
+            class="submit-button"
+          >
+            Send my answers to Santa
+          </button>
+        </section>
+      </form>
+    </div>
+  </body>
+</html>

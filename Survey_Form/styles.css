@@ -1,0 +1,686 @@
+/*-----------------------------------------------
+TABLE OF CONTENTS:
+
+1) BASIC STYLES
+
+2) SLIDER
+    a- Slider Buttons
+
+3) FORM
+    a- Sections
+    b- Figures and Images
+    c- Texts
+    d- Field Groups
+    e- Text Inputs
+        1. Floating Labels
+        2. Inline Validations
+    f- Radio Inputs
+    g- Checkbox Inputs
+    h- Selects
+    i- Textareas
+    j- Buttons
+
+-----------------------------------------------*/
+
+/*-----------------------------------------------
+1) BASIC STYLES
+-----------------------------------------------*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100vh;
+  background-color: #bc153a;
+}
+
+body {
+  height: 100vh;
+  color: #333;
+  font-family: "Segoe UI", Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  background-image: url(https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/Survey_Form/pattern1.png);
+  background-color: whitesmoke;
+}
+@media only screen and (min-width: 120rem) {
+  body {
+    width: 75%;
+    margin: auto;
+  }
+}
+
+/*-----------------------------------------------
+2) SLIDER
+-----------------------------------------------*/
+
+.slider {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end; /* align slider buttons bottom*/
+  justify-content: center;
+}
+
+/*-------------------------------------------
+    2) a- SLIDER BUTTONS
+    -------------------------------------------*/
+
+.slider-btn {
+  width: 1rem;
+  height: 1rem;
+  margin: 2rem 0.5rem;
+  z-index: 10;
+  outline: 0.5rem solid #f7c93e;
+  outline-offset: -0.5rem;
+  cursor: pointer;
+  appearance: none;
+  backface-visibility: hidden;
+}
+
+.slider-btn:checked:nth-of-type(1) {
+  outline-color: #bc153a;
+}
+.slider-btn:checked:not(:nth-of-type(1)) {
+  animation: check 0.5s linear forwards;
+}
+.slider-btn:checked:nth-of-type(1) + .slider-btn {
+  animation: next 1.25s linear 5s infinite;
+} /*only on the first slide*/
+.slider-btn:checked:nth-of-type(1) ~ .form {
+  transform: translateY(0%);
+}
+.slider-btn:checked:nth-of-type(2) ~ .form {
+  transform: translateY(calc((100% / 7) * -1));
+}
+.slider-btn:checked:nth-of-type(3) ~ .form {
+  transform: translateY(calc((100% / 7) * -2));
+}
+.slider-btn:checked:nth-of-type(4) ~ .form {
+  transform: translateY(calc((100% / 7) * -3));
+}
+.slider-btn:checked:nth-of-type(5) ~ .form {
+  transform: translateY(calc((100% / 7) * -4));
+}
+.slider-btn:checked:nth-of-type(6) ~ .form {
+  transform: translateY(calc((100% / 7) * -5));
+}
+.slider-btn:checked:nth-of-type(7) ~ .form {
+  transform: translateY(calc((100% / 7) * -6));
+}
+
+@keyframes check {
+  50% {
+    outline-color: #bc153a;
+    box-shadow: 0 0 0 0.625rem rgba(188, 21, 58, 0.125);
+  }
+  100% {
+    outline-color: #bc153a;
+    box-shadow: 0 0 0 0 rgba(188, 21, 58, 0);
+  }
+}
+
+@keyframes next {
+  50% {
+    box-shadow: 0 0 0 0.625rem rgba(247, 201, 62, 0.85);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(247, 201, 62, 0);
+  }
+}
+
+/*-----------------------------------------------
+3) FORM
+-----------------------------------------------*/
+
+.form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: all 1s ease-out;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+/*-------------------------------------------
+    3) a- SECTIONS
+    -------------------------------------------*/
+
+.form-section {
+  min-height: 100vh; /* min-height instead of height, to minimize the problem of the layout break in mobile when the keyboard appears to write in a field */
+  width: 100%;
+  padding: 1em;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/*-------------------------------------------
+    3) b- FIGURES AND IMAGES
+    -------------------------------------------*/
+
+.form-figure {
+  flex-shrink: 3;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  margin: 0 auto 3vh auto;
+}
+
+.form-figure img {
+  display: block;
+  height: 100%;
+  width: auto;
+  margin: 0;
+}
+
+.form-figure #santa {
+  position: relative;
+  left: 100vw;
+  animation: santa-entry 2s ease 0s 1 forwards;
+}
+@keyframes santa-entry {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100vw);
+  }
+}
+
+.form-figure #rudolph {
+  position: relative;
+  right: 100vw;
+  animation: rudolph-entry 2s ease 0s 1 forwards;
+}
+@keyframes rudolph-entry {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+#final-santa {
+  display: none;
+}
+@media only screen and (min-width: 48rem) {
+  #final-santa {
+    display: initial;
+  }
+}
+
+/*-------------------------------------------
+    3) c- TEXTS
+    -------------------------------------------*/
+
+.form-caption {
+  font-weight: 700;
+  color: #bc153a;
+  margin: 0 auto 0.5em auto;
+}
+
+h1.form-caption {
+  font-family: "Lobster Two", cursive;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+@media only screen and (min-width: 62rem) {
+  h1.form-caption {
+    font-size: 3rem;
+  }
+}
+
+h2.form-caption {
+  font-family: "Lobster Two", cursive;
+  font-size: 1.75rem;
+  margin: 0 auto 1em auto;
+}
+@media only screen and (min-width: 62rem) {
+  h2.form-caption {
+    font-size: 2rem;
+  }
+}
+
+.form-text {
+  font-size: 1.25rem;
+  margin: 0 auto 0.5em auto;
+}
+
+/*-------------------------------------------
+    3) d- FIELD GROUPS
+    -------------------------------------------*/
+
+.form-field-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 0.25em auto;
+}
+
+/*-------------------------------------------
+    3) e- TEXT INPUTS
+    -------------------------------------------*/
+
+.field-text {
+  flex: 1 1 auto;
+  margin: 0 auto 1.75rem auto;
+  color: #333;
+  width: 80vw;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  border: solid 1px #eee;
+  background: #fff;
+}
+@media only screen and (min-width: 62rem) {
+  .field-text {
+    width: 40vw;
+  }
+}
+@media only screen and (min-width: 75rem) {
+  .field-text {
+    width: 25vw;
+  }
+}
+
+.field-text::placeholder {
+  color: rgba(0, 0, 0, 0);
+}
+
+.field-text:focus {
+  outline: none;
+  border-color: #bc153a;
+}
+
+/*-------------------------------------------
+        3) e- 1. FLOATING LABELS
+        -------------------------------------------*/
+
+.field-text + .floating-label {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 60%;
+  transform: translateY(20%);
+  transition: all 200ms ease-out;
+}
+
+.field-text:focus + .floating-label {
+  transform: translate(-0.5rem, -125%) scale(0.9);
+}
+
+.field-text:not(:placeholder-shown) + .floating-label {
+  transform: translate(-0.5rem, -125%) scale(0.9);
+}
+
+/*-------------------------------------------
+        3) e- 2. INLINE VALIDATIONS
+        -------------------------------------------*/
+
+.validation-info {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #bc153a;
+  text-align: right;
+  margin-top: -1.65rem;
+  margin-bottom: 0.9rem;
+}
+
+/* When a required field has a valid or invalid value, the default validation information must be hidden */
+input:required:not(:placeholder-shown):valid ~ .validation-info,
+input:required:not(:placeholder-shown):invalid ~ .validation-info {
+  visibility: hidden;
+}
+
+/* When #email has an invalid value, new validation information must be displayed */
+#email:not(:placeholder-shown):invalid ~ .validation-info::after {
+  content: "Santa requires a valid email!";
+  visibility: visible;
+}
+
+/* When a optional field has a valid value, the default validation information must be hidden */
+input:optional:not(:placeholder-shown):valid ~ .validation-info {
+  visibility: hidden;
+}
+
+/* When #number has an invalid value, aditional validation information must be displayed */
+#number:not(:placeholder-shown):invalid ~ .validation-info::before {
+  content: "Remember: ";
+}
+
+/*-------------------------------------------
+    3) f- RADIO INPUTS
+    -------------------------------------------*/
+
+.field-radio {
+  z-index: 0;
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  padding: 0 0.5em 1em 0.5em;
+}
+
+/* INPUT */
+.field-radio > input {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  z-index: -1;
+  position: absolute;
+  left: -3px;
+  top: -8px;
+  display: block;
+  margin: 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(188, 21, 58, 0.6);
+  outline: none;
+  opacity: 0;
+  transform: scale(1);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+/* SPAN */
+.field-radio > span {
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* CIRCLE */
+.field-radio > span::before {
+  content: "";
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 2px 10px 2px 0;
+  border: solid 2px; /* Safari */
+  border-color: rgba(188, 21, 58, 0.6);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+  transition: border-color 0.2s;
+}
+
+/* CHECK */
+.field-radio > span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(188, 21, 58);
+  transform: translate(5px, 5px) scale(0);
+  transition: transform 0.2s;
+}
+
+/* CHECKED */
+.field-radio > input:checked {
+  background-color: rgb(188, 21, 58);
+}
+.field-radio > input:checked + span::before {
+  border-color: rgb(188, 21, 58);
+}
+.field-radio > input:checked + span::after {
+  transform: translate(13px, 5px) scale(1);
+}
+
+/* HOVER, FOCUS */
+.field-radio:hover > input {
+  opacity: 0.04;
+}
+.field-radio > input:focus {
+  opacity: 0.12;
+}
+.field-radio:hover > input:focus {
+  opacity: 0.16;
+}
+
+/* ACTIVE */
+.field-radio > input:active {
+  opacity: 1;
+  transform: scale(0);
+  transition: transform 0s, opacity 0s;
+}
+.field-radio > input:active + span::before {
+  border-color: rgb(188, 21, 58);
+}
+
+/* DISABLED */
+.field-radio > input:disabled {
+  opacity: 0;
+}
+.field-radio > input:disabled + span {
+  color: rgba(188, 21, 58, 0.38);
+  cursor: initial;
+}
+.field-radio > input:disabled + span::before {
+  border-color: currentColor;
+}
+.field-radio > input:disabled + span::after {
+  background-color: currentColor;
+}
+
+/*-------------------------------------------
+    3) g- CHECKBOX INPUTS
+    -------------------------------------------*/
+
+.field-checkbox {
+  z-index: 0;
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  padding: 0 0.5em 1em 0.5em;
+}
+
+/* INPUT */
+.field-checkbox > input {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  z-index: -1;
+  position: absolute;
+  left: -3px;
+  top: -8px;
+  display: block;
+  margin: 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(188, 21, 58, 0.6);
+  box-shadow: none;
+  outline: none;
+  opacity: 0;
+  transform: scale(1);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.2s;
+}
+
+/* SPAN */
+.field-checkbox > span {
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* BOX */
+.field-checkbox > span::before {
+  content: "";
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 3px 11px 3px 1px;
+  border: solid 2px; /* Safari */
+  border-color: rgba(188, 21, 58, 0.6);
+  border-radius: 2px;
+  width: 18px;
+  height: 18px;
+  vertical-align: top;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* CHECKMARK */
+.field-checkbox > span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 1px;
+  width: 10px;
+  height: 5px;
+  border: solid 2px transparent;
+  border-right: none;
+  border-top: none;
+  transform: translate(11px, 4px) rotate(-45deg);
+}
+
+/* CHECKED, INDETERMINATE */
+.field-checkbox > input:checked,
+.field-checkbox > input:indeterminate {
+  background-color: rgb(188, 21, 58);
+}
+
+.field-checkbox > input:checked + span::before,
+.field-checkbox > input:indeterminate + span::before {
+  border-color: rgb(188, 21, 58);
+  background-color: rgb(188, 21, 58);
+}
+
+.field-checkbox > input:checked + span::after,
+.field-checkbox > input:indeterminate + span::after {
+  border-color: white;
+}
+
+.field-checkbox > input:indeterminate + span::after {
+  border-left: none;
+  transform: translate(4px, 3px);
+}
+
+/* HOVER, FOCUS */
+.field-checkbox:hover > input {
+  opacity: 0.04;
+}
+.field-checkbox > input:focus {
+  opacity: 0.12;
+}
+.field-checkbox:hover > input:focus {
+  opacity: 0.16;
+}
+
+/* ACTIVE */
+.field-checkbox > input:active {
+  opacity: 1;
+  transform: scale(0);
+  transition: transform 0s, opacity 0s;
+}
+.field-checkbox > input:active + span::before {
+  border-color: rgb(188, 21, 58);
+}
+.field-checkbox > input:checked:active + span::before {
+  border-color: transparent;
+  background-color: rgba(188, 21, 58, 0.6);
+}
+
+/* DISABLED */
+.field-checkbox > input:disabled {
+  opacity: 0;
+}
+.field-checkbox > input:disabled + span {
+  color: rgba(188, 21, 58, 0.38);
+  cursor: initial;
+}
+.field-checkbox > input:disabled + span::before {
+  border-color: currentColor;
+}
+
+.field-checkbox > input:checked:disabled + span::before,
+.field-checkbox > input:indeterminate:disabled + span::before {
+  border-color: transparent;
+  background-color: currentColor;
+}
+
+/*-------------------------------------------
+    3) h- SELECTS
+    -------------------------------------------*/
+
+.field-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 50px;
+  width: 80vw;
+  font-size: 1rem;
+  color: #333;
+  padding: 0.5em 1em;
+  background: #fff
+    url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNCIgc3Ryb2tlPSIjMDAwIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBvbHlsaW5lIHBvaW50cz0iNiA5IDEyIDE1IDE4IDkiLz48L3N2Zz4=")
+    no-repeat right 1em center;
+  background-size: 1.5em;
+  transition: border-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.field-select:hover {
+  border: 1px solid #bc153a;
+}
+.field-select:focus {
+  border: 1px solid #bc153a;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+@media only screen and (min-width: 62rem) {
+  .field-select {
+    width: 40vw;
+  }
+}
+@media only screen and (min-width: 75rem) {
+  .field-select {
+    width: 25vw;
+  }
+}
+
+/*-------------------------------------------
+    3) i- TEXTAREAS
+    -------------------------------------------*/
+
+textarea.field-text + .floating-label {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 87.5%;
+  transform: translateY(20%);
+  transition: all 200ms ease-out;
+}
+
+/*-------------------------------------------
+    3) j- BUTTONS
+    -------------------------------------------*/
+
+.submit-button {
+  font-size: inherit;
+  background-color: rgb(188, 21, 58);
+  border: none;
+  color: white;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  margin: 1rem auto;
+  cursor: pointer;
+}
+.submit-button:hover {
+  background-color: rgb(230, 29, 87);
+  box-shadow: 0 0 0.075rem 0.05rem rgba(188, 21, 58, 0.75);
+}
