@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="text/javascript" src="actions.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <svg
+          class="logo_img"
+          xmlns="http://www.w3.org/2000/svg"
+          width="234"
+          height="148"
+          viewBox="0 0 234 148"
+        >
+          <path
+            fill="#CA1833"
+            d="M115.867 76.092l68.159 68.159H47.708l-2.25 2.25h144v-144z"
+          />
+          <path
+            display="none"
+            fill="#FFF"
+            d="M47.708 144.251V7.934l136.318 136.317z"
+          />
+          <path
+            fill="#202020"
+            d="M49.958 13.365l128.636 128.636H49.958V13.365m-4.5-10.864v144h144l-144-144z"
+          />
+        </svg>
+
+        <p class="logo_text">Marta<br />Fagúndez</p>
+      </div>
+
+      <input id="menu_btn" class="menu_btn" type="checkbox" />
+      <label class="menu_icon" for="menu_btn"
+        ><span class="hamburger"></span
+      ></label>
+      <nav id="navbar" class="menu">
+        <ul class="menu_list">
+          <li><a class="menu_list_link" href="#welcome-section">About</a></li>
+          <li><a class="menu_list_link" href="#projects">Projects</a></li>
+          <li><a class="menu_list_link" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="welcome-section">
+        <div class="welcome_section_text">
+          <h1>Hi!</h1>
+          <p class="welcome_section_quote">
+            I am a<br />
+            Front-End <br />
+            Developer
+          </p>
+        </div>
+        <div class="welcome_section_img">
+          <img
+            src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/portfolio/img/developer-woman.png"
+            alt="A female developer smiling"
+          />
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>
+          These are some of<br />
+          <span>my projects</span>
+        </h2>
+
+        <div class="project-tile">
+          <h3 class="project-tile_title">Product Landing Page</h3>
+          <div class="project-tile_decoration"></div>
+          <div class="project-tile_decoration"></div>
+          <div class="project-tile_img">
+            <img
+              class="desktop"
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/portfolio/img/product-landing-page-desktop.png"
+              alt="Product landing page view on desktop device"
+            />
+            <img
+              class="mobile_left"
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/portfolio/img/product-landing-page-mobile.png"
+              alt="Product landing page view on mobile device"
+            />
+          </div>
+          <a
+            class="project-tile_link"
+            target="_blank"
+            href="https://codepen.io/martafagundez/full/RwweEaP"
+            >Try it live</a
+          >
+        </div>
+
+        <div class="project-tile">
+          <h3 class="project-tile_title">Survey Form</h3>
+          <div class="project-tile_decoration"></div>
+          <div class="project-tile_decoration"></div>
+          <div class="project-tile_img">
+            <img
+              class="desktop"
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/portfolio/img/survey-form-desktop.png"
+              alt="Survey form view on desktop device"
+            />
+            <img
+              class="mobile_right"
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/portfolio/img/survey-form-mobile.png"
+              alt="Survey form view on mobile device"
+            />
+          </div>
+          <a
+            class="project-tile_link"
+            target="_blank"
+            href="https://codepen.io/martafagundez/full/abbGZRv"
+            >Try it live</a
+          >
+        </div>
+
+        <div class="project-tile">
+          <h3 class="project-tile_title">Tribute Page</h3>
+          <div class="project-tile_decoration"></div>
+          <div class="project-tile_decoration"></div>
+          <div class="project-tile_img">
+            <img
+              class="desktop"
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/portfolio/img/tribute-page-desktop.png"
+              alt="Tribute page view on desktop device"
+            />
+            <img
+              class="mobile_left"
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/portfolio/img/tribute-page-mobile.png"
+              alt="Tribute page view on mobile device"
+            />
+          </div>
+          <a
+            class="project-tile_link"
+            target="_blank"
+            href="https://codepen.io/martafagundez/full/zYYwZRB"
+            >Try it live</a
+          >
+        </div>
+
+        <div class="project-tile">
+          <h3 class="project-tile_title">Technical Documentation</h3>
+          <div class="project-tile_decoration"></div>
+          <div class="project-tile_decoration"></div>
+          <div class="project-tile_img">
+            <img
+              class="desktop"
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/portfolio/img/technical-documentation-desktop.png"
+              alt="Technical documentation view on desktop device"
+            />
+            <img
+              class="mobile_right"
+              src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/portfolio/img/technical-documentation-mobile.png"
+              alt="Technical documentation view on mobile device"
+            />
+          </div>
+          <a
+            class="project-tile_link"
+            target="_blank"
+            href="https://codepen.io/martafagundez/full/LYYvpEE"
+            >Try it live</a
+          >
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2 class="contact_heading">
+          Let's do<br />
+          something
+          <br />
+          <span>amazing</span>.
+        </h2>
+
+        <p class="contact_quote">
+          Feel free to get in touch with me.<br />
+          I am always open to discussing new projects, creative ideas or
+          opportunities to be part of your visions.
+        </p>
+
+        <p class="contact_tel">+598 12 345 678</p>
+
+        <p class="contact_email">info@futureemail.com</p>
+
+        <div class="contact_social">
+          <a
+            id="profile-link"
+            href="https://www.freecodecamp.org/martafagundez"
+            target="_blank"
+            title="Find me on FreeCodeCamp"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+            >
+              <path
+                fill="#202020"
+                d="M38 6H10c-2.203 0-4 1.797-4 4v28c0 2.203 1.797 4 4 4h28c2.203 0 4-1.797 4-4V10c0-2.203-1.797-4-4-4zM14.132 32.393c.492.439.694.785.695 1.082 0 .146-.1.297-.2.442-.096.098-.296.202-.441.202-.542.001-1.3-.64-2.292-1.889-1.928-2.361-2.8-4.972-2.849-8.53-.044-3.558 1.071-5.971 3.254-8.462.786-.89 1.441-1.353 1.889-1.354a.775.775 0 01.441.15c.101.1.202.245.203.391 0 .25-.295.593-.842 1.155-2.278 2.192-3.423 4.879-3.417 8.119.011 3.583 1.216 6.462 3.559 8.694zm12.3.282c.134-.078 2.365-2.604 1.144-4.04-.055-.054-3.546 1.055-2.893-2.822.438-2.566-.399-3.748-.399-3.748-.949 1.965-1.711 2.837-2.293 3.801-3.038 4.958-.807 6.59-.493 6.787-.473-.289-5.749-3.691-1.798-9.24 4.129-5.807 3.31-8.409 3.31-8.409 6.24 4.968 2.728 9.119 3.585 9.337.856.219 1.268-1.269 1.584-1.584 4.62 6.005-1.885 9.993-1.747 9.918zm9.761-.447c-.989 1.249-1.747 1.89-2.289 1.889a.719.719 0 01-.439-.202c-.103-.146-.203-.298-.203-.442 0-.297.204-.642.698-1.082 2.342-2.231 3.548-5.11 3.553-8.694.009-3.239-1.138-5.926-3.414-8.119-.546-.562-.84-.902-.84-1.154 0-.146.099-.291.202-.392a.769.769 0 01.442-.149c.443.001 1.1.464 1.886 1.354 2.186 2.491 3.301 4.904 3.254 8.464-.047 3.555-.919 6.165-2.85 8.527z"
+              />
+            </svg>
+          </a>
+          <a href="#" target="_blank" title="Find me on Behance">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="#202020"
+                d="M5 3c-1.102 0-2 .898-2 2v14c0 1.102.898 2 2 2h14c1.102 0 2-.898 2-2V5c0-1.102-.898-2-2-2zm1.406 4.688H9c2.3 0 2.688 1.414 2.688 2.312 0 1.3-.895 1.71-1.094 1.813.199.101 1.219.374 1.219 1.874.101 1.801-1.024 2.5-2.626 2.5h-2.78zm7 0h3.688v1h-3.688zM8.094 9.094v2.094H9c.602 0 1-.2 1-1 0-.7-.3-1.094-1-1.094zm7.5.719c1.398 0 2.406.792 2.406 3.093v.688h-3.406c0 .3.02 1.406 1.219 1.406.8 0 1.175-.395 1.374-.594l.72 1c-.102.102-.794.906-2.095.906-1.5 0-2.718-.804-2.718-2.906v-.5c0-2.3 1.199-3.094 2.5-3.094zm-.188 1.28c-.3 0-.906.114-.906 1.313h1.688s.218-1.312-.782-1.312zM8.094 12.5v2.313h1.094c.601 0 .906-.426.906-1.126.101-.8-.18-1.187-.781-1.187z"
+              />
+            </svg>
+          </a>
+          <a href="#" target="_blank" title="Find me on Dribble">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="#202020"
+                d="M4 2c-1.102 0-2 .898-2 2v16c0 1.102.898 2 2 2h16c1.102 0 2-.898 2-2V4c0-1.102-.898-2-2-2zm8.25 2c1.008 0 2.219.98 2.219 5.656 0 1.672-.489 4.16-1.438 6.156.414.563.809.813 1.094.813.387-.078 1.254-1.621 1.719-3.094a.742.742 0 01.937-.5c.403.117.617.574.5.969-.394 1.254-1.496 4.156-3.156 4.156-.523 0-1.203-.254-1.875-.937C11.488 18.285 10.523 19 9.406 19 7.043 19 6 16.848 6 15c0-1.965 1.004-3.813 3.188-3.813.367 0 .703.079 1 .188a26.253 26.253 0 01-.063-1.813c0-.058 0-5.562 2.125-5.562zm.063 1.625c-.317.555-.688 2.2-.688 3.938 0 1.878.215 3.328.531 4.406.485-1.383.813-2.961.813-4.313 0-2.55-.418-3.676-.656-4.031zm-3.407 7.094c-1.351.27-1.375 2.46-1.375 2.562 0 .66.164 2.188 1.875 2.188.66 0 1.332-.625 1.906-1.594a9.446 9.446 0 01-.874-2.563c-.051-.03-.094-.085-.126-.124 0 0-.484-.47-1.124-.47-.102 0-.192-.019-.282 0z"
+              />
+            </svg>
+          </a>
+          <a href="#" target="_blank" title="Find me on Twitter">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="48"
+              height="48"
+            >
+              <path
+                fill="#202020"
+                d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-1.95 6.514v.343c0 3.257-2.486 7.029-7.029 7.029-1.371 0-2.657-.429-3.771-1.114h.6c1.114 0 2.229-.429 3.086-1.029-1.114 0-1.971-.771-2.314-1.714.171 0 .343.086.429.086.257 0 .429 0 .686-.086-1.114-.257-1.971-1.2-1.971-2.4.343.171.686.257 1.114.343-.686-.6-1.114-1.286-1.114-2.143 0-.429.086-.857.343-1.2 1.2 1.457 3 2.486 5.057 2.571 0-.171-.086-.343-.086-.6a2.488 2.488 0 012.486-2.486c.686 0 1.371.257 1.8.771.6-.086 1.114-.343 1.543-.6-.171.6-.6 1.029-1.114 1.371.514-.086.943-.171 1.457-.429a5.789 5.789 0 01-1.202 1.287z"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <form class="contact_form">
+          <div class="form_field">
+            <input
+              id="name"
+              class="field_text"
+              name="name"
+              type="text"
+              value=""
+              placeholder="What's your name?"
+              required
+            />
+            <label for="name" class="field_floating_label"
+              >What's your name?
+            </label>
+            <div class="field_validation_info">*Required</div>
+          </div>
+
+          <div class="form_field">
+            <input
+              id="email"
+              class="field_text"
+              name="email"
+              type="email"
+              placeholder="What's your email?"
+              spellcheck="false"
+              value=""
+              maxlength="30"
+              required
+            />
+            <label for="email" class="field_floating_label"
+              >What's your email?
+            </label>
+            <div class="field_validation_info">*Required</div>
+          </div>
+
+          <div class="form_field">
+            <textarea
+              id="message"
+              class="field_text"
+              placeholder="Your message ..."
+              rows="5"
+            ></textarea>
+            <label for="message" class="field_floating_label"
+              >Your message ...</label
+            >
+          </div>
+
+          <button type="submit" value="Submit" class="form_submit_btn">
+            Send
+          </button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,814 @@
+/*-----------------------------------------------
+TABLE OF CONTENTS:
+
+1) GENERAL
+    A- Texts
+    B- Images
+2) HEADER
+    A- Logo
+    B- Menu
+3) SECTIONS
+    A- Welcome section
+    B- Projects section
+    C- Contact section
+        1. Contact form
+
+-----------------------------------------------*/
+
+/*-----------------------------------------------
+1) GENERAL
+-----------------------------------------------*/
+
+:root {
+  --main-color: #202020;
+  --accent-color: #cb1835;
+  --main-background: whitesmoke;
+  --yellow: #fcc539;
+  --main-font-family: "Lato", sans-serif;
+  --heading-font-family: "Arsenal", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--main-color);
+  font-family: var(--main-font-family);
+  background-color: var(--main-background);
+  transition: all 1s ease-out;
+  overflow-x: hidden;
+}
+
+/*-------------------------------------------
+      1) A- TEXTS
+      -------------------------------------------*/
+
+h1,
+h2,
+h3 {
+  font-family: var(--heading-font-family);
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*-------------------------------------------
+      1) B- IMAGES
+      -------------------------------------------*/
+
+img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/*-----------------------------------------------
+  2) HEADER
+  -----------------------------------------------*/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  max-width: 100%;
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+/*-------------------------------------------
+      2) A- LOGO
+      -------------------------------------------*/
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  margin-left: 1.5vw;
+}
+/* Fluid margin-left */
+@media screen and (min-width: 48rem) {
+  .logo {
+    margin-left: calc(3vw + 1.5 * ((100vw - 48rem) / 72));
+  }
+}
+@media screen and (min-width: 120rem) {
+  .logo {
+    margin-left: 3vw;
+  }
+}
+
+.logo_img {
+  width: 15vw;
+  max-width: 5rem;
+  height: auto;
+}
+
+.logo_text {
+  font-size: 1rem;
+  font-family: var(--heading-font-family);
+  letter-spacing: 0.4em;
+  line-height: 1.125;
+  text-transform: uppercase;
+  animation: name_disappear 1.5s 6s ease-out forwards;
+}
+@keyframes name_disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Fluid font-size */
+@media screen and (min-width: 48rem) {
+  .logo_text {
+    font-size: calc(1rem + 0.25 * ((100vw - 48rem) / 72));
+  }
+}
+@media screen and (min-width: 120rem) {
+  .logo_text {
+    font-size: 1.25rem;
+  }
+}
+
+.logo_img:hover + .logo_text {
+  animation: name_disappear 1.5s ease-out reverse forwards;
+}
+
+/*-------------------------------------------
+      2) B- MENU
+      -------------------------------------------*/
+
+.menu_btn {
+  display: none;
+}
+
+.menu_icon {
+  padding: 2rem 0 2rem 2rem;
+  margin-right: 6vw;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+  width: 1.5rem;
+  height: 0.125rem;
+  background: var(--main-color);
+  transition: background 0.2s ease-out;
+  z-index: 12;
+}
+.hamburger:before,
+.hamburger:after {
+  background: var(--main-color);
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.3s ease-out;
+  width: 100%;
+}
+.hamburger:before {
+  top: 0.5rem;
+}
+.hamburger:after {
+  top: -0.5rem;
+}
+.menu_btn:checked ~ .menu_icon .hamburger {
+  background: transparent;
+}
+.menu_btn:checked ~ .menu_icon .hamburger:before {
+  transform: rotate(-45deg) translateY(-0.5rem) translateX(0.2rem);
+}
+.menu_btn:checked ~ .menu_icon .hamburger:after {
+  transform: rotate(45deg) translateY(0.5rem) translateX(0.2rem);
+}
+
+.menu_list {
+  list-style: none;
+  text-align: center;
+  font-size: 1.25rem;
+  font-family: var(--heading-font-family);
+  letter-spacing: 0.25em;
+  padding: 15vh 0;
+  background-color: var(--main-background);
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+  z-index: 11;
+}
+/* Fluid font-size */
+@media screen and (min-width: 48rem) {
+  .menu_list {
+    font-size: calc(1.25rem + 0.25 * ((100vw - 48rem) / 72));
+  }
+}
+@media screen and (min-width: 120rem) {
+  .menu_list {
+    font-size: 1.5rem;
+  }
+}
+
+.menu_btn:not(:checked) ~ .menu {
+  display: none;
+}
+.menu_btn:checked ~ .menu {
+  max-height: 90vh;
+  width: 100vw;
+  max-width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.menu_list_link {
+  color: inherit;
+  text-decoration: inherit;
+  display: block;
+  padding: 1.25em;
+}
+
+.menu_list_link:hover {
+  color: white;
+  background-color: var(--accent-color);
+  transition: all 0.2s ease-out;
+}
+
+/*-----------------------------------------------
+  3) SECTIONS
+  -----------------------------------------------*/
+
+section {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5vw;
+}
+/* Fluid padding */
+@media screen and (min-width: 48rem) {
+  section {
+    padding: 0 calc(5vw + 20 * ((100vw - 48rem) / 72));
+  }
+}
+@media screen and (min-width: 120rem) {
+  section {
+    padding: 0 25vw;
+  }
+}
+
+/*-------------------------------------------
+      3) A- WELCOME SECTION
+      -------------------------------------------*/
+
+#welcome-section {
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  background-color: var(--yellow);
+  flex-flow: row nowrap;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.welcome_section_text {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-right: -5vw;
+}
+@media screen and (min-width: 48rem) {
+  .welcome_section_text {
+    margin-right: 0;
+  }
+}
+
+h1 {
+  display: inline-block; /* Because transform property doesn't apply on inline elements */
+  color: white;
+  font-size: 3.5rem;
+  font-weight: bold;
+  letter-spacing: 0.125em;
+  z-index: 2;
+  transform: scale(0);
+  animation: hi_appear 1.75s 1.25s ease-in-out forwards;
+}
+@keyframes hi_appear {
+  from {
+    transform: scale(0) rotate(360deg);
+  }
+  40% {
+    transform: scale(1) rotate(0);
+  }
+  70% {
+    transform: scale(1.75) rotate(0);
+  }
+  to {
+    transform: scale(1) rotate(0);
+  }
+}
+/* Fluid font-size */
+@media screen and (min-width: 48rem) {
+  h1 {
+    font-size: calc(3.5rem + 2 * ((100vw - 48rem) / 16));
+  }
+}
+@media screen and (min-width: 64rem) {
+  h1 {
+    font-size: 5.5rem;
+  }
+}
+@media screen and (min-width: 120rem) {
+  h1 {
+    font-size: 6.5rem;
+  }
+}
+
+.welcome_section_quote {
+  display: inline-block; /* Because transform property doesn't apply on inline elements */
+  font-family: var(--heading-font-family);
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  letter-spacing: 0.4em;
+  line-height: 1.5;
+  z-index: 2;
+  transform: translateX(-50vw);
+  opacity: 0;
+  animation: quote_appear 1s 3.15s ease-out forwards;
+}
+@keyframes quote_appear {
+  from {
+    transform: translateX(-50vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* Fluid font-size */
+@media screen and (min-width: 48rem) {
+  .welcome_section_quote {
+    font-size: calc(1rem + 0.75 * ((100vw - 48rem) / 16));
+  }
+}
+@media screen and (min-width: 64rem) {
+  .welcome_section_quote {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (min-width: 120rem) {
+  .welcome_section_quote {
+    font-size: 2rem;
+    animation: quote_appear 1.25s 3.15s ease-out forwards;
+  }
+}
+
+.welcome_section_img {
+  max-width: 90%;
+  height: auto;
+  margin-right: -28vw;
+  transform: translateX(50vw);
+  opacity: 0;
+  animation: img_appear 1s 3.15s ease-out forwards;
+}
+@keyframes img_appear {
+  from {
+    transform: translateX(50vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Fluid max-width and margin-right */
+@media screen and (min-width: 48rem) {
+  .welcome_section_img {
+    max-width: calc(90% + -15 * ((100vw - 48rem) / 72));
+    margin-right: calc(-20vw + 12.5 * ((100vw - 48rem) / 72));
+  }
+}
+@media screen and (min-width: 120rem) {
+  .welcome_section_img {
+    max-width: 65%;
+    margin-right: -7.5vw;
+    animation: img_appear 1.25s 3.15s ease-out forwards;
+  }
+}
+
+/*-------------------------------------------
+      3) B- PROJECTS SECTION
+      -------------------------------------------*/
+
+#projects {
+  padding-top: 15vh;
+  padding-bottom: 10vh;
+  background-color: white;
+}
+/* Fluid padding-top*/
+@media screen and (min-width: 48rem) {
+  #projects {
+    padding-top: calc(15vh + 2 * ((100vw - 48rem) / 72));
+    padding-bottom: calc(10vh + 2 * ((100vw - 48rem) / 72));
+  }
+}
+@media screen and (min-width: 120rem) {
+  #projects {
+    padding-top: 17vh;
+    padding-bottom: 12vh;
+  }
+}
+
+#projects > h2 {
+  font-size: 1rem;
+  letter-spacing: 0.4em;
+  line-height: 1.5;
+  margin-bottom: 7.5vh;
+}
+@media screen and (min-width: 64rem) {
+  #projects > h2 {
+    margin-bottom: 9vh;
+  }
+}
+
+#projects > h2 > span {
+  font-size: 2rem;
+}
+
+.project-tile {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 6vh 11vw;
+  margin-bottom: 7.5vh;
+}
+@media screen and (min-width: 64rem) {
+  .project-tile {
+    padding: 7.5vh 7vw;
+    margin-bottom: 9vh;
+  }
+}
+
+#projects > .project-tile:nth-of-type(1) {
+  background-color: #eee2dc;
+}
+#projects > .project-tile:nth-of-type(2) {
+  background-color: #ffcf6b;
+}
+#projects > .project-tile:nth-of-type(3) {
+  background-color: #faebe3;
+}
+#projects > .project-tile:nth-of-type(4) {
+  background-color: #efefef;
+}
+
+.project-tile_title {
+  font-size: 1rem;
+  letter-spacing: 0.4em;
+  margin-bottom: 5vh;
+}
+@media screen and (min-width: 64rem) {
+  .project-tile_title {
+    font-size: 1.5rem;
+  }
+}
+
+.project-tile_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.desktop {
+  max-width: 90%;
+  border-radius: 2.5%;
+  box-shadow: 0.5vw 0.5vw 1.5vw 0 rgba(0, 0, 0, 0.3);
+  margin-bottom: 2.5vh;
+}
+
+.mobile_left,
+.mobile_right {
+  position: absolute;
+  max-width: 15%;
+}
+.mobile_left {
+  top: 55%;
+  left: -1%;
+}
+.mobile_right {
+  top: 55%;
+  right: -1%;
+}
+
+.project-tile_link {
+  font-size: 1rem;
+  font-family: var(--heading-font-family);
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  border: none;
+  background-color: var(--accent-color);
+  box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+.project-tile_link:hover {
+  font-size: 0.975rem;
+  box-shadow: none;
+}
+
+/*-------------------------------------------
+      3) C- CONTACT SECTION
+      -------------------------------------------*/
+
+#contact {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15vh 15vw 3vh 15vw;
+  background-color: var(--main-background);
+}
+@media screen and (min-width: 90rem) {
+  #contact {
+    flex-flow: column wrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 100vh;
+    padding: 7.5vh 25vw 20vh 25vw;
+  }
+}
+
+.contact_heading {
+  font-size: 1.75rem;
+  letter-spacing: 0.25em;
+  margin-bottom: 2.5vh;
+  text-align: center;
+  order: -3;
+}
+@media screen and (min-width: 90rem) {
+  .contact_heading {
+    font-size: 3rem;
+    letter-spacing: 0.3em;
+    margin-bottom: 5vh;
+    text-align: left;
+  }
+}
+
+.contact_heading > span {
+  color: var(--accent-color);
+}
+
+.contact_quote {
+  display: inline-block;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 5vh;
+  order: -2;
+}
+@media only screen and (min-width: 64rem) {
+  .contact_quote {
+    width: 40vw;
+  }
+}
+@media only screen and (min-width: 90rem) {
+  .contact_quote {
+    width: 20vw;
+  }
+}
+@media screen and (min-width: 90rem) {
+  .contact_quote {
+    font-size: 1.125rem;
+    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 5vh;
+    margin-right: 2.5vw;
+  }
+}
+
+.contact_tel {
+  margin-bottom: 0.25em;
+}
+@media screen and (min-width: 90rem) {
+  .contact_tel {
+    margin-bottom: 0.4em;
+  }
+}
+
+.contact_email {
+  margin-bottom: 5vh;
+}
+
+@media screen and (min-width: 90rem) {
+  .contact_tel,
+  .contact_email {
+    font-size: 1.125rem;
+  }
+}
+
+.contact_social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5vh;
+}
+@media screen and (min-width: 90rem) {
+  .contact_social {
+    justify-content: flex-start;
+  }
+}
+
+.contact_social > a > svg {
+  height: 6.75vh;
+  margin-right: 1vh;
+  transition: all 0.2s ease-out;
+}
+@media screen and (min-width: 90rem) {
+  .contact_social > a > svg {
+    height: 4.5vh;
+    margin-right: 1vh;
+  }
+}
+
+.contact_social > a:last-of-type > svg {
+  margin-right: 0;
+}
+
+.contact_social > a:hover > svg {
+  transform: translateY(-1vh);
+}
+
+.contact_social > a:hover > svg > path {
+  fill: var(--accent-color);
+}
+
+/*-------------------------------------------
+      3) C- 1. CONTACT FORM
+      -------------------------------------------*/
+
+.contact_form {
+  text-align: center;
+  padding: 2.5vh 0;
+  margin-bottom: 5vh;
+  order: -1;
+}
+@media screen and (min-width: 90rem) {
+  .contact_form {
+    text-align: left;
+    padding: 0;
+    margin-bottom: 2.5vh;
+    margin-left: 2.5vw;
+    order: 3;
+  }
+}
+
+.form_field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto 0.25em auto;
+}
+
+/*------- FIELD TEXT -------*/
+
+.field_text {
+  flex: 1 1 auto;
+  margin: 0 auto 1.5rem auto;
+  color: var(--main-color);
+  width: 67.5vw;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  font-family: var(--main-font-family);
+  border: solid 1px rgba(128, 128, 128, 0.25);
+  border-radius: 0.25rem;
+}
+@media only screen and (min-width: 62rem) {
+  .field_text {
+    width: 40vw;
+  }
+}
+@media only screen and (min-width: 90rem) {
+  .field_text {
+    width: 20vw;
+  }
+}
+
+.field_text::placeholder {
+  color: rgba(0, 0, 0, 0);
+}
+
+.field_text:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+/*------- FLOATING LABELS -------*/
+
+.field_text + .field_floating_label {
+  color: #808080;
+  position: absolute;
+  left: 0.75rem;
+  bottom: 60%;
+  transform: translateY(20%);
+  transition: all 0.2s ease-out;
+}
+
+.field_text:focus + .field_floating_label {
+  transform: translate(-0.5rem, -170%);
+  font-size: 0.85em;
+  color: var(--main-color);
+}
+
+.field_text:not(:placeholder-shown) + .field_floating_label {
+  transform: translate(-0.5rem, -170%);
+  font-size: 0.85em;
+  color: var(--main-color);
+}
+
+/*------- TEXTAREAS -------*/
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+textarea.field_text + .field_floating_label {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 82.5%;
+  transform: translateY(20%);
+  transition: all 0.2s ease-out;
+}
+
+/*------- INLINE VALIDATIONS -------*/
+
+.field_validation_info {
+  font-size: 0.75rem;
+  color: var(--accent-color);
+  text-align: right;
+  margin-top: -1.5rem;
+  margin-bottom: 0.9rem;
+  transition: all 0.2s ease-out;
+}
+
+/* When a required field has a valid or invalid value, the default validation information must be hidden */
+input:required:not(:placeholder-shown):valid ~ .field_validation_info,
+input:required:not(:placeholder-shown):invalid ~ .field_validation_info {
+  visibility: hidden;
+}
+
+/* When #email has an invalid value, new validation information must be displayed */
+#email:not(:placeholder-shown):invalid ~ .field_validation_info::after {
+  content: "Invalid email address";
+  visibility: visible;
+}
+
+/* When a optional field has a valid value, the default validation information must be hidden */
+input:optional:not(:placeholder-shown):valid ~ .field_validation_info {
+  visibility: hidden;
+}
+
+/*------- SUBMIT BUTTON -------*/
+
+.form_submit_btn {
+  font-size: 1rem;
+  font-family: var(--heading-font-family);
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  border: none;
+  background-color: var(--accent-color);
+  box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 3rem;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+.form_submit_btn:hover {
+  font-size: 0.975rem;
+  box-shadow: none;
+}
