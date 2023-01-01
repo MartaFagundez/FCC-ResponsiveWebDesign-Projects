@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Documentation Page Project</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Inconsolata|Lato|Poppins:700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="main-doc">
+      <nav id="navbar">
+        <header>
+          <div class="animation-container">
+            <div class="eye">
+              <div class="sclera"></div>
+              <div class="iris"></div>
+              <div class="eyelid"></div>
+            </div>
+            <div class="eye">
+              <div class="sclera"></div>
+              <div class="iris"></div>
+              <div class="eyelid"></div>
+            </div>
+            <div class="eye">
+              <div class="sclera"></div>
+              <div class="iris"></div>
+              <div class="eyelid"></div>
+            </div>
+
+            <div class="shadow"></div>
+
+            <div class="curtain">
+              <img
+                src="https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/techdoc/img/css3-icon-yellow.png"
+                alt="CSS3 logo"
+              />
+            </div>
+          </div>
+
+          <h1>Using CSS <br />animations</h1>
+        </header>
+        <ul class="menu">
+          <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+          <li>
+            <a class="nav-link" href="#Configuring_the_animation"
+              >Configuring the animation</a
+            >
+          </li>
+          <li>
+            <a
+              class="nav-link"
+              href="#Defining_the_animation_sequence_using_keyframes"
+              >Defining the animation sequence using keyframes</a
+            >
+          </li>
+          <li><a class="nav-link" href="#Examples">Examples</a></li>
+          <li><a class="nav-link" href="#References">References</a></li>
+        </ul>
+      </nav>
+
+      <div class="sections-group">
+        <section id="Introduction" class="main-section">
+          <header>
+            <h2>Introduction</h2>
+          </header>
+          <p>
+            CSS animations make it possible to animate transitions from one CSS
+            style configuration to another.
+          </p>
+          <p>
+            Animations consist of two components, a style describing the CSS
+            animation and a set of keyframes that indicate the start and end
+            states of the animation’s style, as well as possible intermediate
+            waypoints.
+          </p>
+          <p>
+            There are three key advantages to CSS animations over traditional
+            script-driven animation techniques:
+          </p>
+          <ol>
+            <li>
+              They’re easy to use for simple animations; you can create them
+              without even having to know JavaScript.
+            </li>
+            <li>
+              The animations run well, even under moderate system load. Simple
+              animations can often perform poorly in JavaScript (unless they’re
+              well made). The rendering engine can use frame-skipping and other
+              techniques to keep the performance as smooth as possible.
+            </li>
+            <li>
+              Letting the browser control the animation sequence lets the
+              browser optimize performance and efficiency by, for example,
+              reducing the update frequency of animations running in tabs that
+              aren't currently visible.
+            </li>
+          </ol>
+        </section>
+
+        <section id="Configuring_the_animation" class="main-section">
+          <header>
+            <h2>Configuring the animation</h2>
+          </header>
+          <p>
+            To create a CSS animation sequence, you style the element you want
+            to animate with the <code>animation</code> property or its
+            sub-properties. This lets you configure the timing, duration, and
+            other details of how the animation sequence should progress. This
+            does <strong>not</strong> configure the actual appearance of the
+            animation, which is done using the <code>@keyframes</code> at-rule
+            as described in
+            <a href="#Defining_the_animation_sequence_using_keyframes"
+              >Defining the animation sequence using keyframes</a
+            >
+            below.
+          </p>
+
+          <p>The sub-properties of the <code>animation</code> property are:</p>
+          <dl>
+            <dt><code>animation-name</code></dt>
+            <dd>
+              Specifies the name of the <code>@keyframes</code> at-rule
+              describing the animation’s keyframes.
+            </dd>
+            <dt><code>animation-duration</code></dt>
+            <dd>
+              Configures the length of time that an animation should take to
+              complete one cycle.
+            </dd>
+            <dt><code>animation-timing-function</code></dt>
+            <dd>
+              Configures the timing of the animation; that is, how the animation
+              transitions through keyframes, by establishing acceleration
+              curves.
+            </dd>
+            <dt><code>animation-delay</code></dt>
+            <dd>
+              Configures the delay between the time the element is loaded and
+              the beginning of the animation sequence
+            </dd>
+            <dt><code>animation-iteration-count</code></dt>
+            <dd>
+              Configures the number of times the animation should repeat; you
+              can specify infinite to repeat the animation indefinitely.
+            </dd>
+            <dt><code>animation-direction</code></dt>
+            <dd>
+              Configures whether or not the animation should alternate direction
+              on each run through the sequence or reset to the start point and
+              repeat itself.
+            </dd>
+            <dt><code>animation-fill-mode</code></dt>
+            <dd>
+              Configures what values are applied by the animation before and
+              after it is executing.
+            </dd>
+            <dt><code>animation-play-state</code></dt>
+            <dd>Lets you pause and resume the animation sequence.</dd>
+          </dl>
+        </section>
+
+        <section
+          id="Defining_the_animation_sequence_using_keyframes"
+          class="main-section"
+        >
+          <header>
+            <h2>Defining the animation sequence using keyframes</h2>
+          </header>
+          <p>
+            Once you’ve configured the animation’s timing, you need to define
+            the appearance of the animation. This is done by establishing two or
+            more keyframes using the <code>@keyframes</code> at-rule. Each
+            keyframe describes how the animated element should render at a given
+            time during the animation sequence.
+          </p>
+          <p>
+            Since the timing of the animation is defined in the CSS style that
+            configures the animation, keyframes use a
+            <code>&#60;percentage&#62;</code> to indicate the time during the
+            animation sequence at which they take place. 0% indicates the first
+            moment of the animation sequence, while 100% indicates the final
+            state of the animation. Because these two times are so important,
+            they have special aliases: <code>from</code> and <code>to</code>.
+            Both are optional. If <code>from</code> / <code>0%</code> or
+            <code>to</code> / <code>100%</code> is not specified, the browser
+            starts or finishes the animation using the computed values of all
+            attributes.
+          </p>
+          <p>
+            You can optionally include additional keyframes that describe
+            intermediate steps between the start and end of the animation.
+          </p>
+        </section>
+
+        <section id="Examples" class="main-section">
+          <header>
+            <h2>Examples</h2>
+          </header>
+
+          <p>
+            Practice makes perfect! You can experiment with these examples or
+            create your own:
+          </p>
+
+          <p
+            class="codepen"
+            data-height="265"
+            data-theme-id="dark"
+            data-default-tab="css,result"
+            data-user="martafagundez"
+            data-slug-hash="ZEEZjjN"
+            data-preview="true"
+            data-pen-title="Pure CSS Animation Study 1"
+          >
+            <span
+              >See the Pen
+              <a href="https://codepen.io/martafagundez/pen/ZEEZjjN">
+                Pure CSS Animation Study 1</a
+              >
+              by Marta Fagúndez (<a href="https://codepen.io/martafagundez"
+                >@martafagundez</a
+              >) on <a href="https://codepen.io">CodePen</a>.</span
+            >
+          </p>
+          <div class="space"></div>
+
+          <p
+            class="codepen"
+            data-height="265"
+            data-theme-id="dark"
+            data-default-tab="css,result"
+            data-user="martafagundez"
+            data-slug-hash="poomvWz"
+            data-preview="true"
+            data-pen-title="Pure CSS Animation Study 2"
+          >
+            <span
+              >See the Pen
+              <a href="https://codepen.io/martafagundez/pen/poomvWz">
+                Pure CSS Animation Study 2</a
+              >
+              by Marta Fagúndez (<a href="https://codepen.io/martafagundez"
+                >@martafagundez</a
+              >) on <a href="https://codepen.io">CodePen</a>.</span
+            >
+          </p>
+          <div class="space"></div>
+
+          <p
+            class="codepen"
+            data-height="265"
+            data-theme-id="dark"
+            data-default-tab="css,result"
+            data-user="martafagundez"
+            data-slug-hash="XWWwKNo"
+            data-preview="true"
+            data-pen-title="Pure CSS Animation Study 3"
+          >
+            <span
+              >See the Pen
+              <a href="https://codepen.io/martafagundez/pen/XWWwKNo">
+                Pure CSS Animation Study 3</a
+              >
+              by Marta Fagúndez (<a href="https://codepen.io/martafagundez"
+                >@martafagundez</a
+              >) on <a href="https://codepen.io">CodePen</a>.</span
+            >
+          </p>
+          <div class="space"></div>
+
+          <p
+            class="codepen"
+            data-height="265"
+            data-theme-id="dark"
+            data-default-tab="css,result"
+            data-user="martafagundez"
+            data-slug-hash="XWWwNYE"
+            data-preview="true"
+            data-pen-title="Pure CSS Animation Study 4"
+          >
+            <span
+              >See the Pen
+              <a href="https://codepen.io/martafagundez/pen/XWWwNYE">
+                Pure CSS Animation Study 4</a
+              >
+              by Marta Fagúndez (<a href="https://codepen.io/martafagundez"
+                >@martafagundez</a
+              >) on <a href="https://codepen.io">CodePen</a>.</span
+            >
+          </p>
+        </section>
+
+        <section id="References" class="main-section">
+          <header>
+            <h2>References</h2>
+          </header>
+
+          <p>The content of this page is based on:</p>
+          <ul>
+            <li>
+              <a
+                target="_blank"
+                href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations"
+                >MDN Web Docs</a
+              >
+            </li>
+            <li>
+              <a target="_blank" href="https://codepen.io/martafagundez"
+                >My Codepen profile</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+  </body>
+</html>
