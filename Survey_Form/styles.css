@@ -42,7 +42,7 @@ body {
   color: #333;
   font-family: "Segoe UI", Geneva, Verdana, sans-serif;
   font-size: 1rem;
-  background-image: url(https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/Survey_Form/pattern1.png);
+  background-image: url(https://raw.githubusercontent.com/MartaFagundez/FreeCodeCamp/master/Survey_Form/img/pattern1.png);
   background-color: whitesmoke;
 }
 @media only screen and (min-width: 120rem) {
